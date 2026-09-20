@@ -1,0 +1,18 @@
+[Unit]
+Description=LiteLLM proxy for Bedrock Kimi K3
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ec2-user
+WorkingDirectory=/home/ec2-user/environment
+EnvironmentFile=/home/ec2-user/environment/.litellm-kimi/litellm.env
+ExecStart=/home/ec2-user/environment/.venv-litellm/bin/litellm --config /home/ec2-user/environment/.litellm-kimi/config.yaml --host 127.0.0.1 --port 4000
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

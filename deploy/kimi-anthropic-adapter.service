@@ -1,0 +1,18 @@
+[Unit]
+Description=Anthropic response adapter for Bedrock Kimi K3
+After=cloud9-litellm.service
+Requires=cloud9-litellm.service
+
+[Service]
+Type=simple
+User=ec2-user
+WorkingDirectory=/home/ec2-user/environment
+EnvironmentFile=/home/ec2-user/environment/.litellm-kimi/litellm.env
+ExecStart=/home/ec2-user/environment/.venv-litellm/bin/uvicorn kimi_anthropic_adapter:app --app-dir /home/ec2-user/environment/.litellm-kimi --host 127.0.0.1 --port 4001
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

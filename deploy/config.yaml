@@ -1,0 +1,21 @@
+model_list:
+  - model_name: sonnet
+    litellm_params:
+      model: bedrock/global.moonshotai.kimi-k3
+      aws_region_name: us-east-1
+      reasoning_effort: low
+      num_retries: 5
+      timeout: 300
+  - model_name: claude-sonnet-5
+    litellm_params:
+      model: bedrock/global.moonshotai.kimi-k3
+      aws_region_name: us-east-1
+      reasoning_effort: low
+      num_retries: 5
+      timeout: 300
+
+litellm_settings:
+  drop_params: true
+
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
