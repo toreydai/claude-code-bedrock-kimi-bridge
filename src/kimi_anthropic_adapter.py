@@ -12,7 +12,7 @@ app = FastAPI()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("kimi-adapter")
 UPSTREAM = os.environ.get("KIMI_UPSTREAM", "http://127.0.0.1:4000")
-UPSTREAM_KEY = os.environ.get("LITELLM_MASTER_KEY", "sk-cloud9-kimi-local")
+UPSTREAM_KEY = os.environ.get("LITELLM_MASTER_KEY", "")
 INCOMPATIBLE_TOOLS = {
     "Artifact", "AskUserQuestion", "EndConversation", "EnterPlanMode",
     "ExitPlanMode", "SendFeedback", "TaskOutput",
